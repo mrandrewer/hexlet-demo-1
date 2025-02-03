@@ -1,4 +1,5 @@
 drop table if exists material_types;
+drop table if exists partner_products cascade;
 drop table if exists partners cascade;
 drop table if exists partner_types cascade;
 drop table if exists products cascade;
@@ -45,4 +46,12 @@ create table partners (
     adress_building varchar(10),
     inn varchar(12),
     rating int
+);
+
+create table partner_products (
+    id serial primary key,
+    products_id int references products(id),
+    partner_id int references partners(id),
+    amount int,
+    sale_date timestamp
 );
