@@ -1,8 +1,14 @@
-import repo.repository as repository
+import sys
+from PyQt5.QtWidgets import QApplication
+from controls.MainWindow import MainWindow
 
 
 def main():
-    repository.get_partners()
+    app = QApplication(sys.argv)
+    main_window = MainWindow()
+    main_window.show()
+    result = app.exec()
+    sys.exit(result)
 
 
 if __name__ == '__main__':
