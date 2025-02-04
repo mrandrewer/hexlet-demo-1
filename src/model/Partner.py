@@ -32,3 +32,9 @@ class Partner:
         self.inn = inn
         self.rating = rating
         self.total_sales = total_sales
+
+    @property
+    def direcror_full_name(self):
+        return self.director_last_name + " " +\
+            self.director_first_name + " " +\
+            self.director_middle_name

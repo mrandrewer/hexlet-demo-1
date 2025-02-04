@@ -87,3 +87,6 @@ class PartnerWidget(QtWidgets.QWidget):
             partner_types), None)
         self.labelType.setText(partner_type.partner_type_name)
         self.labelName.setText(partner.partner_name)
+        self.labelDirector.setText(partner.direcror_full_name)
+        self.labelPhone.setText(partner.phone)
+        self.labelRating.setText(f"Рейтинг: {partner.rating}")

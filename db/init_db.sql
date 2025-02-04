@@ -38,7 +38,7 @@ create table partners (
     director_first_name varchar(50),
     director_middle_name varchar(50),
     email varchar(150),
-    phone varchar(15),
+    phone varchar(20),
     adress_index varchar(20),
     adress_region varchar(50),
     adress_city varchar(50),
