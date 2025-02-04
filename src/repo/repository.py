@@ -1,5 +1,6 @@
 import psycopg2
 import settings
+from model.PatrnerType import PartnerType
 from model.Partner import Partner
 
 
@@ -11,6 +12,24 @@ def create_connection():
         f"password={settings.db_params['password']} "
     conn = psycopg2.connect(conn_str)
     return conn
+
+
+def get_partner_types():
+    conn = create_connection()
+    cursor = conn.cursor()
+    cursor.execute("""
+        select
+            id,
+            partner_type_name
+        from partner_types
+    """)
+    records = cursor.fetchall()
+    result = []
+    for record in records:
+        result.append(PartnerType(*record))
+    cursor.close()
+    conn.close()
+    return result
 
 
 def get_partners():

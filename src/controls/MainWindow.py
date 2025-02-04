@@ -10,6 +10,8 @@
 
 import os
 from PyQt5 import QtCore, QtGui, QtWidgets
+from controls.PartnerWidget import PartnerWidget
+import repo.repository as repo
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -42,3 +44,16 @@ class MainWindow(QtWidgets.QMainWindow):
         self.statusbar = QtWidgets.QStatusBar(self)
         self.statusbar.setObjectName("statusbar")
         self.setStatusBar(self.statusbar)
+        self.load_partner_types()
+        self.load_partners()
+
+    def load_partner_types(self):
+        self.partner_types = repo.get_partner_types()
+
+    def load_partners(self):
+        self.partners = repo.get_partners()
+        for partner in self.partners:
+            widget = PartnerWidget(self, self.partner_types, partner)
+            item = QtWidgets.QListWidgetItem(self.listWidget)
+            item.setSizeHint(widget.sizeHint())
+            self.listWidget.setItemWidget(item, widget)
