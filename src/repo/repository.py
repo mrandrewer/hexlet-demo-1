@@ -37,10 +37,8 @@ def get_partners():
     cursor = conn.cursor()
     cursor.execute("""
         with total_sales as (
-            select pp.partner_id, sum(pr.min_price * pp.amount) as total_sales
+            select pp.partner_id, sum(pp.amount) as total_sales
             from partner_products pp
-                join products pr
-                    on pr.id = pp.products_id
             group by pp.partner_id
         )
         select

@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from logic.discounts import calculate_partner_discount
 from model.Partner import Partner
 from model.PatrnerType import PartnerType
 
@@ -90,3 +91,4 @@ class PartnerWidget(QtWidgets.QWidget):
         self.labelDirector.setText(partner.direcror_full_name)
         self.labelPhone.setText(partner.phone)
         self.labelRating.setText(f"Рейтинг: {partner.rating}")
+        self.labelDiscount.setText(F"{calculate_partner_discount(partner)}%")
