@@ -15,7 +15,7 @@ class Partner:
                  adress_building,
                  inn,
                  rating,
-                 discount=0):
+                 total_sales=0):
         self.id = id
         self.partner_type = partner_type
         self.partner_name = partner_name
@@ -31,4 +31,4 @@ class Partner:
         self.adress_building = adress_building
         self.inn = inn
         self.rating = rating
-        self.discount = discount
+        self.total_sales = total_sales
