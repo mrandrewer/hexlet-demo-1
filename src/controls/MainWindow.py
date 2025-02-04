@@ -73,6 +73,9 @@ class MainWindow(QtWidgets.QMainWindow):
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Highlight, brush)
         self.setPalette(palette)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        self.setFont(font)
         self.load_partner_types()
         self.load_partners()
 
